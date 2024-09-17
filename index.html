@@ -9,6 +9,8 @@
           position: relative;
           padding: 1rem 2rem calc(1rem + 10px);
           background: #fff100;
+          font-family: monospace; /* タイトルが動く文字であるためにモノスペースフォントを適用 */
+          color: #dc143c; /* タイトルのカラーを#dc143cに設定 */
         }
 
         h1:before {
@@ -45,13 +47,8 @@
     </style>
 </head>
 <body>
-    <h1>Hello! Trybalunit entry Page!</h1>
+    <h1><span id="title-text"></span><span class="console-underscore">_</span></h1>
     <p>Welcome to my static site hosted with GitHub Pages.</p>
-
-    <div class="console-container">
-        <span id="text"></span>
-        <div class="console-underscore" id="console">_</div>
-    </div>
 
     <script type="text/javascript" src="https://app-webparts-hrbc.porterscloud.com/po-b.js" data-template-id="20162"></script>
     <script type="porters/webparts"></script>
@@ -60,10 +57,10 @@
         let text = "Hello! Trybalunit entry Page!";
         let i = 0;
         let speed = 100;
-        
+
         function typeWriter() {
             if (i < text.length) {
-                document.getElementById("text").innerHTML += text.charAt(i);
+                document.getElementById("title-text").innerHTML += text.charAt(i);
                 i++;
                 setTimeout(typeWriter, speed);
             }
