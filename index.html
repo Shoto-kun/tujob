@@ -8,7 +8,7 @@
         h1 {
           position: relative;
           padding: 1rem 2rem calc(1rem + 10px);
-          background: #dc143c;
+          background: #fff100;
         }
 
         h1:before {
@@ -20,14 +20,57 @@
           content: '';
           border: 4px solid #000;
         }
+
+        .console-container {
+          font-family: monospace;
+          color: #000;
+          background: #fff;
+        }
+
+        .console-underscore {
+          display: inline-block;
+          margin-left: 5px;
+          animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
     </style>
 </head>
 <body>
     <h1>Hello! Trybalunit entry Page!</h1>
     <p>基本情報の入力をお願いします.</p>
 
+    <div class="console-container">
+        <span id="text"></span>
+        <div class="console-underscore" id="console">_</div>
+    </div>
+
     <script type="text/javascript" src="https://app-webparts-hrbc.porterscloud.com/po-b.js" data-template-id="20162"></script>
     <script type="porters/webparts"></script>
 
+    <script>
+        let text = "入力欄へようこそ";
+        let i = 0;
+        let speed = 100;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        window.onload = function() {
+            typeWriter();
+        };
+    </script>
 </body>
 </html>
