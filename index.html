@@ -32,9 +32,8 @@
       padding: 1rem; /* パディングを簡素化 */
       width: 100%;
       text-align: center; /* テキストを中央に */
-      white-space: nowrap; /* テキストが改行されないようにする */
-      overflow: hidden;
-      text-overflow: ellipsis; /* 過剰なテキストを省略表示 */
+      white-space: pre-wrap; /* 改行を適切に処理 */
+      overflow-wrap: break-word; /* 単語を適切に折り返す */
     }
 
     .console-underscore {
@@ -75,9 +74,9 @@
   <script type="porters/webparts"></script>
 
   <script>
-    let text = "Hello! Trybalunit entry Page!";
+    const text = "Hello! Trybalunit entry Page!";
     let i = 0;
-    let speed = 100;
+    const speed = 100;
 
     function typeWriter() {
       if (i < text.length) {
