@@ -1,100 +1,101 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        *, *::before, *::after {
-            box-sizing: inherit;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My GitHub Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        h1 {
-          position: relative;
-          padding: 1rem; /* パディングを簡素化 */
-          background: #dc143c; /* タイトルの背景色を赤に設定 */
-          font-family: monospace; /* タイトルが動く文字であるためにモノスペースフォントを適用 */
-          color: #000; /* タイトルの文字色を黒に設定 */
-          margin: 0;
-          width: 100%; /* 幅を100%に */
-          text-align: center; /* テキストを中央に */
-        }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
 
-        h1::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          border: 4px solid #000; /* ボーダーを設定 */
-          box-sizing: border-box;
-          pointer-events: none;
-        }
+    h1 {
+      position: relative;
+      padding: 1rem;
+      background: #dc143c; /* タイトルの背景色を赤に設定 */
+      font-family: monospace; /* タイトルが動く文字であるためにモノスペースフォントを適用 */
+      color: #000; /* タイトルの文字色を黒に設定 */
+      margin: 0;
+      text-align: center; /* テキストを中央に */
+      overflow: hidden;
+    }
 
-        .console-container {
-          font-family: monospace;
-          color: #000;
-          background: #fff;
-          display: inline-block;
-        }
+    h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw; /* ビューポートの幅全体をカバー */
+      height: 100%;
+      background: inherit; /* 親要素の背景色を継承 */
+      z-index: -1; /* 背景を背面に配置 */
+      border-left: 4px solid #000;
+      border-right: 4px solid #000;
+    }
 
-        .console-underscore {
-          display: inline-block;
-          margin-left: 5px;
-          animation: blink 1s infinite;
-        }
+    .console-container {
+      font-family: monospace;
+      color: #000;
+      background: #fff;
+      display: inline-block;
+    }
 
-        @keyframes blink {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0;
-          }
-        }
+    .console-underscore {
+      display: inline-block;
+      margin-left: 5px;
+      animation: blink 1s infinite;
+    }
 
-        /* 追加CSS：レスポンシブ調整 */
-        @media (max-width: 768px) {
-            h1 {
-                padding: 1rem 0.5rem;
-            }
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
 
-            h1::before {
-                border-width: 2px; /* モバイル時にボーダー幅を小さく */
-            }
-        }
-    </style>
+    /* 追加CSS：レスポンシブ調整 */
+    @media (max-width: 768px) {
+      h1 {
+        padding: 1rem 0.5rem;
+      }
+
+      h1::before {
+        border-width: 2px; /* モバイル時にボーダー幅を小さく */
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1><span id="title-text"></span><span class="console-underscore">_</span></h1>
-    <p>基本情報の入力をお願いいたします</p>
+  <h1><span id="title-text"></span><span class="console-underscore">_</span></h1>
+  <p>基本情報の入力をお願いいたします</p>
 
-    <script type="text/javascript" src="https://app-webparts-hrbc.porterscloud.com/po-b.js" data-template-id="20162"></script>
-    <script type="porters/webparts"></script>
+  <script type="text/javascript" src="https://app-webparts-hrbc.porterscloud.com/po-b.js" data-template-id="20162"></script>
+  <script type="porters/webparts"></script>
 
-    <script>
-        let text = "Hello! Trybalunit entry Page!";
-        let i = 0;
-        let speed = 100;
+  <script>
+    let text = "Hello! Trybalunit entry Page!";
+    let i = 0;
+    let speed = 100;
 
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById("title-text").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            }
-        }
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("title-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
 
-        window.onload = function() {
-            typeWriter();
-        };
-    </script>
+    window.onload = function() {
+      typeWriter();
+    };
+  </script>
 </body>
 </html>
