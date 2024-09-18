@@ -2,14 +2,15 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My GitHub Page</title>
   <style>
     html, body {
-      height: 100%;
-      width: 100%;
       margin: 0;
       padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;  /* ページ全体の水平スクロールを防止 */
       box-sizing: border-box;
     }
 
@@ -20,22 +21,26 @@
     .header-container {
       width: 100%;
       background: #dc143c;
+      border: 4px solid #000;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 4px solid #000; /* ヘッダー全体にボーダーを追加 */
       box-sizing: border-box;
+      overflow: hidden; /* コンテンツがコンテナの外へはみ出すのを防止 */
     }
 
     h1 {
-      font-family: monospace; /* タイトルが動く文字であるためにモノスペースフォントを適用 */
-      color: #000; /* タイトルの文字色を黒に設定 */
+      font-family: monospace;
+      color: #000;
       margin: 0;
-      padding: 1rem; /* パディングを簡素化 */
-      text-align: center; /* テキストを中央に */
-      white-space: pre-wrap; /* 改行を適切に処理 */
-      overflow-wrap: break-word; /* 単語を適切に折り返す */
-      max-width: 100%; /* テキストがコンテナを超えないように */
+      padding: 1rem;
+      text-align: center;
+      white-space: nowrap; /* テキストが折り返されないように設定 */
+      overflow: hidden; /* 余白ができるのを防ぐ */
+      text-overflow: ellipsis; /* 長いテキストは省略記号で表示 */
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .console-underscore {
@@ -53,15 +58,20 @@
       }
     }
 
-    /* 追加CSS：レスポンシブ調整 */
     @media (max-width: 768px) {
       h1 {
         padding: 1rem 0.5rem;
-        font-size: 1rem; /* フォントサイズを少し小さくして改行を調整 */
+        font-size: 1rem;
       }
 
       .header-container {
-        border-width: 2px; /* モバイル時にボーダー幅を小さく */
+        border-width: 2px;
+      }
+    }
+    
+    @media (max-width: 375px) { /* iPhone SE および小さい画面向け */
+      h1 {
+        font-size: 0.8rem; /* さらに小さいフォントサイズに調整 */
       }
     }
   </style>
