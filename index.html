@@ -30,6 +30,11 @@
       color: #000; /* タイトルの文字色を黒に設定 */
       margin: 0;
       padding: 1rem; /* パディングを簡素化 */
+      width: 100%;
+      text-align: center; /* テキストを中央に */
+      white-space: nowrap; /* テキストが改行されないようにする */
+      overflow: hidden;
+      text-overflow: ellipsis; /* 過剰なテキストを省略表示 */
     }
 
     .console-underscore {
@@ -51,6 +56,7 @@
     @media (max-width: 768px) {
       h1 {
         padding: 1rem 0.5rem;
+        font-size: 1rem; /* フォントサイズを少し小さくして改行を調整 */
       }
 
       .header-container {
