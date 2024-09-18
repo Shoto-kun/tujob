@@ -10,10 +10,6 @@
       width: 100%;
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* 横スクロールを防ぐ */
-    }
-
-    body {
       box-sizing: border-box;
     }
 
@@ -39,6 +35,7 @@
       text-align: center; /* テキストを中央に */
       white-space: pre-wrap; /* 改行を適切に処理 */
       overflow-wrap: break-word; /* 単語を適切に折り返す */
+      max-width: 100%; /* テキストがコンテナを超えないように */
     }
 
     .console-underscore {
